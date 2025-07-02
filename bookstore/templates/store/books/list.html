@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="mt-4">
+
+    <h1>All Books</h1>
+
+    {% if books.count == 0 %}
+
+        <h3>There are no books, yet.</h3>
+
+    {% else %}
+
+        <h3>
+            {% if books.count == 1 %}
+                There is {{ books.count }} book.
+            {% else %}
+                There are {{ books.count }} books.
+            {% endif %}
+        </h3>
+
+        <ul class="list-group">
+            {% for book in books %}
+                <ul class="list-group-item">{{ book.title }}</ul>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+    </div>
+
+{% endblock %}

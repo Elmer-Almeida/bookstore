@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="bi bi-opencollective accent-color"></i>&nbsp; El Library
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %} active {% endif %}" aria-current="page" href="{% url 'landing' %}">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/books/' %} active {% endif %}" href="{% url 'store:book_list' %}">
+                        All Books
+                    </a>
+                </li>
+            </ul>
+
+            <form class="d-flex" role="search">
+                <input class="form-control me-2"
+                       type="search"
+                       placeholder="Search for title, ISBN..."
+                       aria-label="Search for title, ISBN..."/>
+                <button class="btn btn-outline-primary border-2" type="submit">
+                    <i class="bi bi-search-heart-fill"></i>
+                </button>
+            </form>
+            <span class="me-auto"></span>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>&nbsp;
+                            {% if request.user and request.user.is_authenticated %}
+                                {{ request.user.username }}
+                            {% else %}
+                                Accounts
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if request.user and request.user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create an Account</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</nav>
