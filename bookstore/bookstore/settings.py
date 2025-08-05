@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "store.apps.StoreConfig",
     "blog.apps.BlogConfig",
+    "cart.apps.CartConfig",
 
     "django.contrib.sites",
     "django.contrib.auth",
@@ -44,11 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.staticfiles",
-
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",
 
     "crispy_forms",
     "crispy_bootstrap5",
@@ -62,8 +58,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-
-    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "bookstore.urls"

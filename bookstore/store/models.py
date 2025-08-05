@@ -2,9 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 BOOK_FORMAT_CHOICES = (
-('HC', 'Hardcover'),
-('PB', 'Paperback'),
-('EB', 'E-Book'),
+    ('HC', 'Hardcover'),
+    ('PB', 'Paperback'),
+    ('EB', 'E-Book'),
 )
 
 

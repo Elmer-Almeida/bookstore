@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <i class="bi bi-opencollective accent-color"></i>&nbsp; El Library
+            <i class="bi bi-opencollective accent-color"></i>&nbsp; Library
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,24 +31,13 @@
             </form>
             <span class="me-auto"></span>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle"></i>&nbsp;
-                            {% if request.user and request.user.is_authenticated %}
-                                {{ request.user.username }}
-                            {% else %}
-                                Accounts
-                            {% endif %}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            {% if request.user and request.user.is_authenticated %}
-                                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                            {% else %}
-                                <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                                <li><a class="dropdown-item" href="{% url 'account_signup' %}">Create an Account</a></li>
-                            {% endif %}
-                        </ul>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/cart/' %} active {% endif %}" href="{% url '' %}">
+                        <span class="bi bi-bag"></span>&nbsp;
+                        Cart
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
